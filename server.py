@@ -1,10 +1,12 @@
-from flask import Flask, render_template, session, request
+from flask import Flask, render_template, session, request, redirect
 
 app = Flask(__name__)
 app.secret_key = "blahhhhhhhh"
 
 @app.route('/')
 def show_homepage():
+
+    # print(session['name'])
     return render_template('homepage.html')
 
 ###############################
@@ -30,7 +32,13 @@ def show_results():
 def save_name():
     """Save user's name into session."""
 
-    name = requests.args.get('name')
+    name = request.args.get('name')
+    # print(name)
+    session['name'] = name
+    # print(session['name'])
+
+    return redirect('/')
+
 
 
 if __name__ == "__main__":
