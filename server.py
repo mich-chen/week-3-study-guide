@@ -26,7 +26,17 @@ def show_form():
 def show_results():
     """Render to results page."""
 
-    return render_template('results.html')
+    messages = {
+        'cheery': f"Hi {session['name']}, this is a cheery message!",
+        'honest': f"Hi {session['name']}, this is a honest message!",
+        'dreary': f"Hi {session['name']}, this is a dreary message!"
+    }
+
+    # .getlist -> get all the values that has this 'message' and store as list
+    message_types = request.args.getlist("message")
+    print(message_types)
+
+    return render_template('results.html', message_types=message_types, messages=messages)
 
 @app.route('/save-name')
 def save_name():

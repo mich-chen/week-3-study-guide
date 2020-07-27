@@ -4,8 +4,9 @@
 
 
 <p>
-    #4) Finish the route called /results. Then, display appropriate results on 
-    this page.
+    {% for message in message_types %}
+        {{ messages[message] }}
+    {% endfor %}
 </p>
 
 
