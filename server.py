@@ -26,6 +26,12 @@ def show_results():
 
     return render_template('results.html')
 
+@app.route('/save-name')
+def save_name():
+    """Save user's name into session."""
+
+    name = requests.args.get('name')
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
