@@ -16,7 +16,9 @@ def show_homepage():
 
 @app.route('/form')
 def show_form():
-    pass
+    """Render to forms page."""
+
+    return render_template('form.html')
 
 @app.route('/results')
 def show_results():
