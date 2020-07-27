@@ -22,7 +22,9 @@ def show_form():
 
 @app.route('/results')
 def show_results():
-    pass
+    """Render to results page."""
+
+    return render_template('results.html')
 
 
 if __name__ == "__main__":
